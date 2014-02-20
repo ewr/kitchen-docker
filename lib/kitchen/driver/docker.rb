@@ -26,7 +26,7 @@ module Kitchen
     # @author Sean Porter <portertech@gmail.com>
     class Docker < Kitchen::Driver::SSHBase
 
-      default_config :socket,        'unix:///var/run/docker.sock'
+      default_config :socket,        ENV['DOCKER_HOST'] || 'unix:///var/run/docker.sock'
       default_config :privileged,    false
       default_config :use_cache,     true
       default_config :remove_images, false
